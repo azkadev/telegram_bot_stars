@@ -501,10 +501,10 @@ packages:
     dependency: "direct main"
     description:
       name: telegram_client
-      sha256: "671eed8245d25e96aff201353eea4d0f10d5e4f31dc2dbf029667586ee509666"
+      sha256: "80ed440be0a52bd2ad740961ecf7059bf0b8e9d2028232f4e86fd65c71470098"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.19"
+    version: "0.8.20"
   term_glyph:
     dependency: transitive
     description:
