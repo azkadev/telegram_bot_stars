@@ -18,7 +18,7 @@ dependencies:
   system_info_fetch: '^0.0.21'
   translate_client: '^0.0.2'
   general_lib: '^0.0.42'
-  telegram_client: '^0.8.19'
+  telegram_client: '^0.8.20'
   server_universe: '^0.0.13'
 dev_dependencies: 
   lints: '^3.0.0'

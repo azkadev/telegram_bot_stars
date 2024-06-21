@@ -37,7 +37,6 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'dart:async';
 import 'dart:math';
 
-import 'package:general_lib/general_lib.dart';
 import 'package:telegram_client/telegram_client/telegram_client.dart';
 
 FutureOr<dynamic> updateMessage({
