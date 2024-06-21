@@ -32,11 +32,11 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-// ignore_for_file: non_constant_identifier_names, 
+// ignore_for_file: non_constant_identifier_names,
 
 import 'dart:async';
+import 'dart:math';
 
-import 'package:system_info_fetch/system_info_fetch.dart';
 import 'package:telegram_client/telegram_client/telegram_client.dart';
 
 FutureOr<dynamic> updateMessage({
@@ -62,8 +62,7 @@ FutureOr<dynamic> updateMessage({
   }
   bool isAdmin = false;
 
-  String chat_type = (msg["chat"]["type"] as String)
-      .replaceAll(RegExp(r"(super)", caseSensitive: false), "");
+  String chat_type = (msg["chat"]["type"] as String).replaceAll(RegExp(r"(super)", caseSensitive: false), "");
   if (chat_type.isEmpty) {
     return null;
   }
@@ -103,39 +102,60 @@ FutureOr<dynamic> updateMessage({
       parameters: {
         "@type": "sendMessage",
         "chat_id": chat_id,
-        "text": "Hai Saya robot"
-      },
-      telegramClientData: updateTelegramClient.telegramClientData,
-    );
-  }
-  if (RegExp(r"^((/)?ping)$", caseSensitive: false).hasMatch(caption_msg)) {
-    return await tg.request(
-      parameters: {"@type": "sendMessage", "chat_id": chat_id, "text": "PONG"},
-      telegramClientData: updateTelegramClient.telegramClientData,
-    );
-  }
-
-  if (RegExp(r"^((/)?systeminfo|info|env|neofetch|pfetch)$",
-          caseSensitive: false)
-      .hasMatch(caption_msg)) {
-    return await tg.request(
-      parameters: {
-        "@type": "sendMessage",
-        "chat_id": chat_id,
-        "text": "SystemInfo: ${SystemInfoFetch.toMessage()}",
+        "text": "hi i am a robot, created by azka dev",
+        "reply_markup": {
+          "inline_keyboard": [
+            [
+              {
+                "text": "AZKADEV",
+                "url": "https://github.com/azkadev",
+              }
+            ]
+          ]
+        }
       },
       telegramClientData: updateTelegramClient.telegramClientData,
     );
   }
 
-  RegExp regExp_echo = RegExp(r"^((/)?(echo[ ]+)(.*))", caseSensitive: false);
+  RegExp regExp_echo = RegExp(r"^((/)?(create_invoice[ ]+)(.*))", caseSensitive: false);
   if (regExp_echo.hasMatch(caption_msg)) {
+    String invoice_amount_raw = caption_msg.replaceAll(RegExp(r"^((/)?(create_invoice[ ]+))", caseSensitive: false), "");
+    int amount = (num.tryParse(invoice_amount_raw) ?? 0).toInt();
+    if (amount < 1) {
+      amount = Random().nextInt(100) + 1;
+    }
+    Map res = await tg.request(
+      parameters: {
+        "@type": "createInvoiceLink",
+        "title": "Invoice ${DateTime.now().toString()}",
+        "description": "${msg_from["first_name"]}",
+        "payload": "${DateTime.now().millisecondsSinceEpoch} ${msg_from["id"]}",
+        "currency": "XTR",
+        "prices": [
+          {
+            "label": "itemone",
+            "amount": amount,
+          }
+        ]
+      },
+      telegramClientData: updateTelegramClient.telegramClientData,
+    );
     return await tg.request(
       parameters: {
         "@type": "sendMessage",
         "chat_id": chat_id,
-        "text": caption_msg.replaceAll(
-            RegExp(r"^((/)?(echo[ ]+))", caseSensitive: false), ""),
+        "text": "Please Tap Inline Button Below",
+        "reply_markup": {
+          "inline_keyboard": [
+            [
+              {
+                "text": "Pay",
+                "url": res["result"],
+              }
+            ]
+          ]
+        }
       },
       telegramClientData: updateTelegramClient.telegramClientData,
     );
