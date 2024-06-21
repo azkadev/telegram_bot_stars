@@ -56,6 +56,17 @@ telegram_bot_token="past_token_bot_here_from_botfather" dart run
 
 
 
+
+### Command
+
+
+/start
+
+/me
+
+/create_invoice 50
+
+
 This program is create very simple for education or learning, 
 
 If you need please donate first [AZKADEV](https://github.com/azkadev)
