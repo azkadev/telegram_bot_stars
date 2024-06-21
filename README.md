@@ -50,7 +50,7 @@ dart pub get
 
 ### Run
 
-telegram_bot_token="past_token_bot_here_from_botfather" dart run
+dart run
 
 ### Demo
 
