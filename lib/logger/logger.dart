@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 /* <!-- START LICENSE -->
 
 
@@ -30,4 +32,14 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-export "package:telegram_bot_stars/update/update.dart";
+import 'package:mason_logger/mason_logger.dart';
+
+Logger logger = Logger(
+    theme: LogTheme(
+  success: (message) {
+    return "✅️ ${message}";
+  },
+  err: (message) {
+    return "❎️ ${message}";
+  },
+));

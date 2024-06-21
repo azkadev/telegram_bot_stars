@@ -1,15 +1,29 @@
-name: telegram_bot_stars
-description: A sample command-line application.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
-
-environment:
-  sdk: ^3.3.4
-
-# Add regular dependencies here.
-dependencies:
-  # path: ^1.8.0
-
-dev_dependencies:
-  lints: ^3.0.0
-  test: ^1.24.0
+name: 'telegram_bot_stars'
+description: 'A Example Quick Start Telegram Userbot BY @AZKADEV'
+version: '0.0.0'
+repository: 'https://github.com/azkadev/telegram_client'
+homepage: 'https://github.com/azkadev/telegram_client'
+issue_tracker: 'https://github.com/azkadev/telegram_client/issues'
+documentation: 'https://github.com/azkadev/telegram_client/tree/main/docs'
+funding: 
+  - 'https://github.com/sponsors/azkadev'
+publish_to: 'none'
+environment: 
+  sdk: '^3.3.0'
+dependencies: 
+  http: '^1.1.2'
+  mason_logger: '^0.2.12'
+  packagex: '^0.0.58'
+  path: '^1.9.0'
+  system_info_fetch: '^0.0.21'
+  translate_client: '^0.0.2'
+  general_lib: '^0.0.42'
+  telegram_client: '^0.8.19'
+  server_universe: '^0.0.13'
+dev_dependencies: 
+  lints: '^3.0.0'
+  test: '^1.24.0'
+server_universe: 
+  supabase: 
+    input_file: 'bin/telegram_bot_stars_supabase.dart'
+    output_directory: 'supabase/functions/telegram_bot_stars'

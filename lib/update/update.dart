@@ -30,4 +30,4 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-export "package:telegram_bot_stars/update/update.dart";
+export "package:telegram_bot_stars/update/update_message.dart";
