@@ -32,3 +32,22 @@ Telegram Stars introduce several advantages for both users and developers:
 3. **Creator Appreciation:** The ability to send Stars as gifts empowers users to directly support their favorite Telegram creators, encouraging continued content creation and engagement.
 
 **Overall, Telegram Stars represent a valuable addition to the Telegram platform, offering a versatile and secure medium for transactions and fostering a supportive environment for both users and developers.**
+
+
+## Development
+
+### Clone Repo Or Download This source code
+
+
+git clone https://github.com/azkadev/telegram_bot_stars.git
+cd telegram_bot_stars
+
+
+### Download All Package
+
+dart pub get
+
+
+### Run
+
+telegram_bot_token="past_token_bot_here_from_botfather" dart run
